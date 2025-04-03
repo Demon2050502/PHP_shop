@@ -1,0 +1,259 @@
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Шапка */
+.admin-header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 20px;
+}
+
+.admin-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Навигация */
+.admin-nav {
+  display: flex;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.tab-btn {
+  padding: 8px 15px;
+  background-color: #34495e;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tab-btn:hover {
+  background-color: #3d566e;
+}
+
+.tab-btn.active {
+  background-color: #1abc9c;
+}
+
+.logout-btn {
+  margin-left: auto;
+  padding: 8px 15px;
+  background-color: #e74c3c;
+  color: white;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Основное содержимое */
+.admin-main {
+  background-color: white;
+  padding: 20px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Формы */
+.product-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  min-height: 100px;
+}
+
+.submit-btn {
+  padding: 8px 15px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #27ae60;
+}
+
+.cancel-btn {
+  padding: 8px 15px;
+  background-color: #95a5a6;
+  color: white;
+  text-decoration: none;
+  border-radius: 3px;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+
+.cancel-btn:hover {
+  background-color: #7f8c8d;
+}
+
+/* Таблицы */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th {
+  background-color: #34495e;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Кнопки действий */
+.actions {
+  white-space: nowrap;
+}
+
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.edit-btn {
+  color: #3498db;
+}
+
+.delete-btn {
+  color: #e74c3c;
+}
+
+/* Сообщения */
+.admin-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  z-index: 1000;
+  animation: fadeIn 0.3s;
+}
+
+.admin-message.success {
+  background-color: #4caf50;
+}
+
+.admin-message.error {
+  background-color: #f44336;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Формы и таблицы */
+#product-form-container,
+#products-list-container,
+#users-list-container,
+#orders-list-container {
+  margin-bottom: 30px;
+  animation: fadeIn 0.5s;
+}
+
+/* Кнопки действий */
+.actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px;
+  margin: 0 3px;
+}
+
+.edit-product-btn {
+  color: #3498db;
+}
+
+.delete-product-btn,
+.delete-user-btn {
+  color: #e74c3c;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .admin-nav {
+    flex-direction: column;
+  }
+
+  .logout-btn {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}

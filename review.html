@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Карточки товаров</title>
+    <link rel="stylesheet" href="style/style_review.css" />
+    <link rel="stylesheet" href="style/main_style/header.css" />
+  </head>
+  <body>
+    <header>
+      <div class="auth-buttons" id="authButtons">
+        <!-- Сюда будет вставлен контент через JavaScript -->
+      </div>
+
+      <nav>
+        <a href="basket.html"><img src="img_sait/icon_basket.svg" /></a>
+        <a href="favourite.html"
+          ><img src="img_sait/icon_favourite.svg" alt=""
+        /></a>
+        <a href="office.html"><img src="img_sait/icon_office.svg" alt="" /></a>
+        <a href="review.html"><img src="img_sait/icon_review.svg" alt="" /></a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="menu">
+        <h3>Фильтры</h3>
+        <div class="filters">
+          <button onclick="sortProducts('price', 'asc')">
+            Сортировать по цене (по возрастанию)
+          </button>
+          <button onclick="sortProducts('price', 'desc')">
+            Сортировать по цене (по убыванию)
+          </button>
+          <button onclick="sortProducts('name', 'asc')">
+            Сортировать по названию (А-Я)
+          </button>
+          <button onclick="sortProducts('name', 'desc')">
+            Сортировать по названию (Я-А)
+          </button>
+        </div>
+
+        <div class="filters">
+          <div class="category-filter">
+            <h4>Категории</h4>
+            <label><input type="checkbox" value="Ноутбуки" />Ноутбуки</label>
+            <label
+              ><input type="checkbox" value="Системный блок" />Системный
+              блок</label
+            >
+          </div>
+
+          <button onclick="applyFilters()">Применить фильтры</button>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="products" id="productContainer"></div>
+      </div>
+    </main>
+
+    <div id="reviewModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Оставить отзыв</h2>
+        <input
+          type="text"
+          id="userName"
+          placeholder="Ваше имя (необязательно)"
+        />
+        <textarea id="reviewText" placeholder="Ваш отзыв..."></textarea>
+        <button id="submitReview">Отправить</button>
+        <div id="reviewsList"></div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/review/main_reviews.js"></script>
+    <script src="js/review.js"></script>
+    <script src="js/cart/basket_script.js"></script>
+    <script src="js/cart/favorite_script.js"></script>
+  </body>
+</html>

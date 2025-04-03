@@ -1,0 +1,75 @@
+-- Отключаем проверки ключей перед очисткой
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Удаляем таблицы, если они уже существуют
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS cart;
+DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS favorites;
+
+-- Включаем проверки ключей
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- Создаем таблицу пользователей
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Создаем таблицу товаров
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    description TEXT
+);
+
+-- Создаем таблицу корзины
+CREATE TABLE cart (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+-- Создаем таблицу отзывов
+CREATE TABLE reviews (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    user_id INT NOT NULL,
+    text TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Создаем таблицу избранного
+CREATE TABLE favorites (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+UPDATE users SET is_admin = TRUE WHERE username = 'admin';
+
+-- Вставляем данные в таблицу products
+INSERT INTO products (name, price, category, image, description) VALUES
+('Lenovo IdeaPad Slim 3 15AMN8 Ноутбук 15.6', 39290.00, 'Ноутбуки', 'https://ir.ozone.ru/s3/multimedia-1-v/wc1000/7152993091.jpg', '-'),
+('ноутбук игровой мощный 15.6', 41047.00, 'Ноутбуки', 'https://ir.ozone.ru/s3/multimedia-1-z/wc1000/7194541139.jpg', '-'),
+('Компьютерс Системный блок КК10', 49248.00, 'Системный блок', 'https://ir.ozone.ru/s3/multimedia-1-v/wc1000/7008797983.jpg', '-'),
+('Robotcomp Системный блок M-16 3.0 V3', 99828.00, 'Системный блок', 'https://ir.ozone.ru/s3/multimedia-t/wc1000/6809974697.jpg', '-'),
+('Apple MacBook Air 13 Ноутбук 13.6', 136990.00, 'Ноутбуки', 'https://ir.ozone.ru/s3/multimedia-w/wc1000/6454005608.jpg', '-'),
+('Robotcomp Системный блок M-16 3.0 Plus White', 100473.00, 'Системный блок', 'https://ir.ozone.ru/s3/multimedia-1-1/wc1000/7287705469.jpg', '-'),
+('Lenovo LOQ 15IRX9 Игровой ноутбук 15.6', 121990.00, 'Ноутбуки', 'https://ir.ozone.ru/s3/multimedia-1-q/wc1000/7126229138.jpg', '-'),
+('Lenovo Legion Pro 5 16ARX8 Игровой ноутбук 16', 151990.00, 'Ноутбуки', 'https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7168012100.jpg', '-');

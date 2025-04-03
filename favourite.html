@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Избранное</title>
+    <link rel="stylesheet" href="style/style_favourite.css" />
+    <link rel="stylesheet" href="style/main_style/header.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="auth-buttons" id="authButtons">
+        <!-- Сюда будет вставлен контент через JavaScript -->
+      </div>
+
+      <nav>
+        <a href="basket.html"><img src="img_sait/icon_basket.svg" /></a>
+        <a href="favourite.html"
+          ><img src="img_sait/icon_favourite.svg" alt=""
+        /></a>
+        <a href="office.html"><img src="img_sait/icon_office.svg" alt="" /></a>
+        <a href="review.html"><img src="img_sait/icon_review.svg" alt="" /></a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="main-card">
+        <div class="main-filters frame">
+          <h1 >Избранное</h1>
+
+          <select name="sort">
+            <option value="new-first">Сначала новые</option>
+            <option value="price-low-high">Цена: по возрастанию</option>
+            <option value="price-high-low">Цена: по убыванию</option>
+          </select>
+        </div>
+
+        <div class="cart-items-container" id="favoriteContainer"></div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <!-- <script src="js/review/main_reviews.js"></script> -->
+    <script src="js/favorite_js.js"></script>
+    <script src="js/cart/basket_script.js"></script>
+    <script src="js/cart/favorite_script.js"></script>
+  </body>
+</html>
