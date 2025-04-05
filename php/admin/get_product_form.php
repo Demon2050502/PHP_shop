@@ -1,6 +1,8 @@
 <?php
 require '../db.php';
 
+header('Content-Type: text/html'); // Явно указываем тип контента
+
 $product = ['name' => '', 'price' => '', 'category' => '', 'image' => '', 'description' => ''];
 $action = 'add';
 $title = 'Добавить товар';
