@@ -6,6 +6,7 @@
     <title>Карточки товаров</title>
     <link rel="stylesheet" href="style/style_review.css" />
     <link rel="stylesheet" href="style/main_style/header.css" />
+    <link rel="stylesheet" href="style/modal_window/style_modal_window.css" />
   </head>
   <body>
     <header>
@@ -63,15 +64,55 @@
     <div id="reviewModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <h2>Оставить отзыв</h2>
-        <input
-          type="text"
-          id="userName"
-          placeholder="Ваше имя (необязательно)"
-        />
-        <textarea id="reviewText" placeholder="Ваш отзыв..."></textarea>
-        <button id="submitReview">Отправить</button>
-        <div id="reviewsList"></div>
+
+        <div class="product-info">
+          <img
+            id="productImage"
+            src=""
+            alt="Изображение товара"
+            class="product-image"
+          />
+          <div class="product-text">
+            <h2 id="productTitle" class="product-title"></h2>
+            <div class="average-rating">
+              <div id="averageRatingStars" class="stars"></div>
+              <span id="averageRatingValue"></span>
+              <span id="reviewsCount"></span>
+            </div>
+          </div>
+        </div>
+
+        <h2>Поделитесь впечатлениями</h2>
+
+        <!-- Форма добавления отзыва -->
+        <div class="review-form">
+          <div class="rating-container">
+            <span>Оцените товар:</span>
+            <div class="rating-stars">
+              <input type="radio" id="star5" name="rating" value="5" />
+              <label for="star5">★</label>
+              <input type="radio" id="star4" name="rating" value="4" />
+              <label for="star4">★</label>
+              <input type="radio" id="star3" name="rating" value="3" />
+              <label for="star3">★</label>
+              <input type="radio" id="star2" name="rating" value="2" />
+              <label for="star2">★</label>
+              <input type="radio" id="star1" name="rating" value="1" />
+              <label for="star1">★</label>
+            </div>
+          </div>
+          <textarea id="reviewText" placeholder="Комментарий"></textarea>
+          <button id="submitReview">Оставить отзыв</button>
+          <div class="terms">
+            Нажимая кнопку, вы принимаете условия публикации отзыва – он
+            появится на ресурсах сайта.
+          </div>
+        </div>
+
+        <!-- Список отзывов с возможностью прокрутки -->
+        <div class="reviews-container">
+          <div id="reviewsList"></div>
+        </div>
       </div>
     </div>
 
