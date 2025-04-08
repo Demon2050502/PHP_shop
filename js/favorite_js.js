@@ -33,7 +33,7 @@ async function checkAuth() {
 // Функция для загрузки избранных товаров с сервера
 async function fetchFavorites() {
   try {
-    const response = await fetch("../php/get_favorites.php");
+    const response = await fetch("../php/favorite/get_favorites.php");
     const data = await response.json(); // Парсим ответ сервера
 
     if (data.status === "success") {
@@ -96,9 +96,11 @@ function createFavoriteCard(item) {
         <div class="price">${item.price} ₽</div>
 
         <div class="actions">
-            <button class="open-reviews" onclick="openReviewModal(${item.id})">
-              <img src="img_sait/reviews.svg">
-            </button>
+              <button class="open-reviews" onclick="openReviewModal(${
+                item.id
+              }, '${item.name}', '${item.image}')">
+                  <img src="img_sait/reviews.svg">
+              </button>
             <button class="add-to-cart" onclick="addToCart(${
               item.id
             })">В корзину</button>
@@ -116,5 +118,5 @@ function createFavoriteCard(item) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderFavoriteProducts(); // Загружаем и отображаем избранные товары при загрузке страницы
+  renderFavoriteProducts();
 });

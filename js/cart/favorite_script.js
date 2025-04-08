@@ -18,7 +18,7 @@ async function toggleHeart(icon, itemId) {
   const newFavoriteState = !isCurrentlyFavorite;
 
   try {
-    const response = await fetch("./php/toggle_favorite.php", {
+    const response = await fetch("./php/favorite/toggle_favorite.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -54,7 +54,7 @@ async function checkFavorite(productId) {
 
   try {
     const response = await fetch(
-      `./php/check_favorite.php?user_id=${userId}&product_id=${productId}`
+      `./php/favorite/check_favorite.php?user_id=${userId}&product_id=${productId}`
     );
 
     if (!response.ok) {
@@ -62,9 +62,7 @@ async function checkFavorite(productId) {
       return false;
     }
 
-    const data = await response.json(); // Получаем данные один раз
-
-    console.log(data);
+    const data = await response.json();
 
     return data; // Возвращаем результат
   } catch (error) {

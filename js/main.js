@@ -1,6 +1,6 @@
 async function loadAuthData_main() {
   try {
-    const response = await fetch("php/check_auth.php");
+    const response = await fetch("./php/check_auth.php");
     const data = await response.json();
 
     const authButtons = document.getElementById("authButtons");

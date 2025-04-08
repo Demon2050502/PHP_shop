@@ -21,7 +21,7 @@ document.getElementById("submitReview").addEventListener("click", async () => {
     return;
   }
 
-  const response = await fetch("./php/add_review.php", {
+  const response = await fetch("./php/reviews/add_review.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -36,9 +36,7 @@ document.getElementById("submitReview").addEventListener("click", async () => {
 
   const data = await response.json();
   if (data.status === "success") {
-    alert(data.message);
     document.getElementById("reviewText").value = "";
-    // Uncheck all rating stars
     document
       .querySelectorAll('input[name="rating"]')
       .forEach((el) => (el.checked = false));
@@ -49,7 +47,9 @@ document.getElementById("submitReview").addEventListener("click", async () => {
 });
 
 async function displayReviews(productId) {
-  const response = await fetch(`./php/get_reviews.php?productId=${productId}`);
+  const response = await fetch(
+    `./php/reviews/get_reviews.php?productId=${productId}`
+  );
   const reviews = await response.json();
 
   const reviewsList = document.getElementById("reviewsList");
@@ -128,7 +128,9 @@ async function displayAverageRating(productId) {
 
 // Обновляем displayReviews чтобы вызывать обновление рейтинга после добавления отзыва
 async function displayReviews(productId) {
-  const response = await fetch(`./php/get_reviews.php?productId=${productId}`);
+  const response = await fetch(
+    `./php/reviews/get_reviews.php?productId=${productId}`
+  );
   const reviews = await response.json();
 
   const reviewsList = document.getElementById("reviewsList");
