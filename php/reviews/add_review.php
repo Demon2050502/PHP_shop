@@ -3,7 +3,7 @@ require '../db.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
 $productId = $data['productId'];
-$token = $data['token']; // Переименовал $userId в $token для ясности
+$token = $data['token'];
 $text = $data['text'];
 $rating = $data['rating'] ?? null;
 
@@ -21,7 +21,7 @@ if ($userResult->num_rows > 0) {
 // Добавляем отзыв
 $sql = "INSERT INTO reviews (product_id, user_id, user_name, text, rating) VALUES (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("iissi", $productId, $token, $userName, $text, $rating); // Используем $token как user_id
+$stmt->bind_param("iissi", $productId, $token, $userName, $text, $rating);
 
 if ($stmt->execute()) {
     echo json_encode(['status' => 'success', 'message' => 'Отзыв успешно добавлен']);

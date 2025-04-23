@@ -25,12 +25,8 @@ function loadAuthData() {
     .then((data) => {
       const authButtons = document.getElementById("authButtons");
       if (data.authenticated) {
-        let adminLink = data.is_admin
-          ? '<a href="admin_panel.php" class="admin-link">Админ-панель</a>'
-          : "";
         authButtons.innerHTML = `
                     <span>${data.username}</span>
-                    ${adminLink}
                     <a href="../php/logout.php">Выйти</a>
                 `;
       } else {
@@ -276,17 +272,11 @@ function loadOrders() {
     })
     .then((html) => {
       document.getElementById("orders-list-container").innerHTML = html;
-      setupOrderActions();
     })
     .catch((error) => {
       console.error("Error loading orders:", error);
       showMessage("Ошибка загрузки заказов", "error");
     });
-}
-
-function setupOrderActions() {
-  // Здесь можно добавить обработчики для действий с заказами
-  // Например, изменение статуса заказа
 }
 
 // Общая функция для показа сообщений

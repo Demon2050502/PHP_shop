@@ -5,6 +5,7 @@ const productsPerPage = 6;
 let currentSortKey = "price";
 let currentSortOrder = "asc";
 
+
 // Функция проверки авторизации
 async function checkAuth() {
   const token = localStorage.getItem("authToken");
@@ -190,22 +191,13 @@ function applyFiltersAndSort(sortKey, sortOrder) {
   currentSortKey = sortKey;
   currentSortOrder = sortOrder;
 
-  // Применяем фильтры (обновляем filteredProducts)
   applyFilters();
 
-  // Обновляем отображение (сохраняем текущую страницу)
   updateProductDisplay();
 }
 
 // Инициализация
 document.addEventListener("DOMContentLoaded", async () => {
-  const isAuthenticated = await checkAuth();
-  if (!isAuthenticated) {
-    document.getElementById("productContainer").innerHTML =
-      "<p>Пожалуйста, войдите в систему, чтобы просмотреть товары.</p>";
-    return;
-  }
-
   products = await fetchProducts();
   if (Array.isArray(products)) {
     // Инициализируем filteredProducts всеми товарами
