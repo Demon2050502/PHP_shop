@@ -31,17 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_id'] = $user_id;
         $_SESSION['username'] = $username;
         
-        // Формируем токен (можно использовать user_id или создать более сложный токен)
-        $authToken = base64_encode(json_encode([
-            'user_id' => $user_id,
-            'username' => $username,
-            'expires' => time() + (7 * 24 * 60 * 60) // Токен на 7 дней
-        ]));
         
         echo "<script>
-            localStorage.setItem('authToken', '" . $authToken . "');
+            localStorage.setItem('authToken',  $user_id);
             window.location.href = '../review.html';
-            </script>";
+        </script>";
         exit();
     } else {
         echo "Ошибка при регистрации!";

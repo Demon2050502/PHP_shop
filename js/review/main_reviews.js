@@ -4,12 +4,9 @@ document.getElementById("submitReview").addEventListener("click", async () => {
     .getElementById("reviewModal")
     .getAttribute("data-product-id");
   const rating = document.querySelector('input[name="rating"]:checked')?.value;
-  const token = localStorage.getItem("authToken");
-
-  if (!token) {
-    alert("Пожалуйста, авторизуйтесь чтобы оставить отзыв");
-    return;
-  }
+  
+  const authChecked = await checkAuthWithAlert();
+  if (!authChecked) return;
 
   if (!reviewText) {
     alert("Текст отзыва не может быть пустым");
@@ -156,3 +153,5 @@ async function displayReviews(productId) {
   // Обновляем средний рейтинг после загрузки отзывов
   await displayAverageRating(productId);
 }
+
+

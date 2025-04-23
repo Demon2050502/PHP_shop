@@ -1,10 +1,7 @@
 // Функция переключения состояния "избранного"
 async function toggleHeart(icon, itemId) {
-  const userId = localStorage.getItem("authToken");
-  if (!userId) {
-    alert("Войдите в систему, чтобы добавлять товары в избранное");
-    return;
-  }
+  const authChecked = await checkAuthWithAlert();
+  if (!authChecked) return;
 
   // Находим SVG внутри кнопки (изменили поиск элемента)
   const heartIcon = icon.querySelector(".heart-icon");
