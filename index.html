@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/main_style/header.css">
+    <link rel="stylesheet" href="style/index.css">
+    <title>Главная страница</title>
+</head>
+<body>
+    <header>
+        <div class="auth-buttons" id="authButtons">
+          <!-- Сюда будет вставлен контент через JavaScript -->
+        </div>
+  
+        <nav>
+          <a href="basket.html"><img src="img_sait/icon_basket.svg" /></a>
+          <a href="favourite.html"
+            ><img src="img_sait/icon_favourite.svg" alt=""
+          /></a>
+          <a href="office.html"><img src="img_sait/icon_office.svg" alt="" /></a>
+          <a href="review.html"><img src="img_sait/icon_review.svg" alt="" /></a>
+        </nav>
+      </header>
+
+      <main>
+        <div class="slider">
+          <div class="slides">
+              <div class="slide"><img src="img_sait/1.jpg" alt="Slide 1"></div>
+              <div class="slide"><img src="img_sait/2.jpg" alt="Slide 2"></div>
+              <div class="slide"><img src="img_sait/3.jpg" alt="Slide 3"></div>
+          </div>
+          <div class="nav">
+              <button onclick="prevSlide()">❮</button>
+              <button onclick="nextSlide()">❯</button>
+          </div>
+          <div class="dots">
+              <span class="dot active" onclick="goToSlide(0)"></span>
+              <span class="dot" onclick="goToSlide(1)"></span>
+              <span class="dot" onclick="goToSlide(2)"></span>
+          </div>
+        </div>
+        <script src="js/slider.js"></script>
+
+        <div class="yandex-map">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A4cae4ce82a143aca9e52a7506cad5e01f30a2da108850aec336a798b8752ff84&amp;source=constructor" width="1150" height="450" frameborder="0">
+            </iframe>
+        </div>
+      
+      <div class="review-all-cards">
+        <div class="review-card">
+            <div class="review-header">
+                <span class="reviewer-name">Алексей</span>
+                <div class="rating">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+            <div class="review-text">
+                Хороший магазин, но мало консультантов, которые могут определиться с выбором.
+            </div>
+            <div class="review-date">23 апреля 2025</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+              <span class="reviewer-name">Вячеслав</span>
+              <div class="rating">
+                  <span class="star filled">★</span>
+                  <span class="star filled">★</span>
+                  <span class="star filled">★</span>
+                  <span class="star filled">★</span>
+                  <span class="star filled">★</span>
+              </div>
+          </div>
+          <div class="review-text">
+              Очень хороший магазин с огромным выбором товаров!!!
+          </div>
+          <div class="review-date">23 апреля 2025</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+              <span class="reviewer-name">Серафим</span>
+              <div class="rating">
+                  <span class="star filled">★</span>
+                  <span class="star filled">★</span>
+                  <span class="star filled">★</span>
+                  <span class="star filled">★</span>
+                  <span class="star filled">★</span>
+              </div>
+          </div>
+          <div class="review-text">
+              Хороший магазин, с приятным расположением и огромным выбором товаров.
+              Рекомендую.
+          </div>
+          <div class="review-date">23 апреля 2025</div>
+        </div>
+      </div>
+      </main>
+
+      <script src="js/main.js"></script>
+</body>
+</html>
