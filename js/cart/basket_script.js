@@ -1,5 +1,5 @@
 async function addToCart(productId) {
-  const quantity = 1; // Количество товара (можно сделать настраиваемым)
+  const quantity = 1;
   const authChecked = await checkAuthWithAlert();
   if (!authChecked) return;
 
@@ -11,5 +11,5 @@ async function addToCart(productId) {
     body: JSON.stringify({ productId, quantity, userId }),
   });
   const data = await response.json();
-  alert(data.message); // Показываем сообщение о результате
+  alert(data.message);
 }

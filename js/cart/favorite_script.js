@@ -3,7 +3,6 @@ async function toggleHeart(icon, itemId) {
   const authChecked = await checkAuthWithAlert();
   if (!authChecked) return;
 
-  // Находим SVG внутри кнопки (изменили поиск элемента)
   const heartIcon = icon.querySelector(".heart-icon");
   if (!heartIcon) {
     console.error("Элемент сердца не найден");
@@ -61,7 +60,7 @@ async function checkFavorite(productId) {
 
     const data = await response.json();
 
-    return data; // Возвращаем результат
+    return data;
   } catch (error) {
     console.error("Ошибка сети:", error);
     return false;

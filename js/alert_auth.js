@@ -4,7 +4,6 @@ function showAlertModal(
   buttonText = "Хорошо",
   autoCloseDelay = 3000
 ) {
-  // Создаем модальное окно
   const modal = document.createElement("div");
   modal.className = "alert-modal";
 
@@ -19,7 +18,6 @@ function showAlertModal(
 
   document.body.appendChild(modal);
 
-  // Активируем анимацию появления
   setTimeout(() => modal.classList.add("active"), 10);
 
   // Функция скрытия
@@ -32,12 +30,10 @@ function showAlertModal(
     }, 500);
   };
 
-  // Закрытие по кнопке
   modal
     .querySelector(".alert-modal__button")
     .addEventListener("click", hideModal);
 
-  // Автоматическое закрытие (если delay > 0)
   if (autoCloseDelay > 0) {
     setTimeout(hideModal, autoCloseDelay);
   }
