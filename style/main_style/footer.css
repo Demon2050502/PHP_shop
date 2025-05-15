@@ -1,0 +1,23 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #a0b299;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+footer > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer > div > div {
+  display: flex;
+  flex-direction: column;
+}
+
+footer > p {
+  text-align: center;
+}
