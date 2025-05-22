@@ -3,19 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <title>Вход</title>
-    <link rel="stylesheet" href="style/style_form.css">
+    <link rel="stylesheet" href="style/style_form.css" />
+    <link rel="stylesheet" href="style/modal_window/style_alert_wodal.css" />
   </head>
   <body>
     <h2>Вход</h2>
-    <form action="php/login.php" method="POST">
+    <form id="login-form">
       <label for="username">Имя пользователя</label>
-      <input type="text" name="username" required />
+      <input type="text" name="username" id="username" required />
 
       <label for="password">Пароль</label>
-      <input type="password" name="password" required />
+      <input type="password" name="password" id="password" required />
 
       <button type="submit">Войти</button>
     </form>
     <p>Нет аккаунта? <a href="register.html">Зарегистрируйтесь</a></p>
   </body>
+
+  <script src="js/form.js"></script>
+  <script src="js/alert_auth.js"></script>
 </html>

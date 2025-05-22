@@ -25,9 +25,6 @@ function showAlertModal(
     modal.classList.remove("active");
     modal.classList.add("hiding");
 
-    setTimeout(() => {
-      document.body.removeChild(modal);
-    }, 500);
   };
 
   modal

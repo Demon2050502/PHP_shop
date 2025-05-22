@@ -26,6 +26,7 @@ if (!isset($_SESSION['user_id']) || !isAdmin($_SESSION['user_id'])) {
     <title>Админ-панель</title>
     <link rel="stylesheet" href="style/style_admin.css">
     <link rel="stylesheet" href="style/main_style/header.css">
+    <link rel="stylesheet" href="style/main_style/main.css" />
 </head>
 
 <body>
