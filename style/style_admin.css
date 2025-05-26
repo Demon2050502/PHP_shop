@@ -1,3 +1,5 @@
+@import url("main_style/variables.css");
+
 .admin-container {
   max-width: 1200px;
   margin: 0 auto;

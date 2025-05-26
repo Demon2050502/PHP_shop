@@ -1,25 +1,27 @@
+@import url("variables.css");
 
 header {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #a0b299;
+  background-color: var(--color-accent);
   padding: 20px;
   text-align: center;
 
   .admin-link {
-    color: #ff5722; /* Оранжевый цвет для выделения */
+    color: var(--color-warning);
     font-weight: bold;
     margin-right: 15px;
     text-decoration: none;
-    border-left: 2px solid #ff5722;
+    border-left: 2px solid var(--color-warning);
     padding-left: 10px;
+    transition: color 0.3s;
   }
 
   .admin-link:hover {
     text-decoration: underline;
-    color: #e64a19;
+    color: var(--color-hover);
   }
 
   .auth-buttons {
@@ -37,7 +39,7 @@ header {
   }
 
   nav a {
-    color: white;
+    color: var(--color-text-light);
     text-decoration: none;
     font-size: 18px;
     padding: 5px 10px;
@@ -46,7 +48,7 @@ header {
   }
 
   nav a:hover {
-    background-color: #798673;
-    color: #fff;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
   }
 }

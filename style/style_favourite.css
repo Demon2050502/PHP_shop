@@ -1,6 +1,8 @@
+@import url("main_style/variables.css");
+
 .frame {
   padding: 20px;
-  background: #a0b299;
+  background: var(--color-accent);
   border-radius: 12px;
 }
 
@@ -25,13 +27,16 @@
   h1 {
     font-size: 24px;
     margin: 0;
+    color: var(--color-text);
   }
 
   select {
     height: min-content;
     padding: 5px 10px;
     border-radius: 8px;
-    border: #000000 2px solid;
+    border: 2px solid var(--color-border);
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
   }
 }
 
@@ -43,13 +48,13 @@
 }
 
 .product-card {
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   padding: 15px;
   border-radius: 10px;
   width: 200px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  box-sizing: border-box; /* Убедитесь, что отступы и граница входят в размеры карточки */
+  box-shadow: var(--shadow-sm);
+  background-color: var(--color-bg-secondary);
+  box-sizing: border-box;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -58,7 +63,7 @@
 
 .product-card > img {
   height: 150px;
-  background-color: #f0f0f0;
+  background-color: var(--color-light);
   border-radius: 5px;
   margin-bottom: 10px;
   max-width: 100%;
@@ -74,6 +79,7 @@
 
 .price {
   text-align: center;
+  color: var(--color-text);
 }
 
 .actions {
@@ -86,17 +92,17 @@
 }
 
 .open-reviews {
-  background: none; /* Убираем фон */
-  border: none; /* Убираем границу */
-  cursor: pointer; /* Изменяем курсор на указатель */
-  padding: 0; /* Убираем лишние отступы */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .open-reviews > img {
   width: 24px;
   height: 24px;
   color: transparent;
-  stroke: #000;
+  stroke: var(--color-text);
   transition: color 0.3s, stroke 0.3s;
 }
 
@@ -105,43 +111,51 @@
   margin-bottom: 8px;
   display: block;
   width: 100%;
-
-  color: rgb(0, 0, 0);
+  color: var(--color-text);
   padding: 10px 0;
   text-align: center;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  background: var(--color-light);
+  transition: background 0.3s ease;
+}
+
+.add-to-cart:hover,
+.quick-view:hover {
+  background: var(--color-primary-light);
+  color: var(--color-text-light);
 }
 
 .product-card h3 {
   margin: 10px 0;
   font-size: 18px;
-  color: #644b6c;
+  color: var(--color-secondary);
 }
 
 .product-card p {
   margin: 5px 0;
   font-size: 14px;
-  color: #70305f;
+  color: var(--color-primary);
 }
+
 .add-to-favorite {
-  background: none; /* Убираем фон */
-  border: none; /* Убираем границу */
-  cursor: pointer; /* Изменяем курсор на указатель */
-  padding: 0; /* Убираем лишние отступы */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .add-to-favorite .heart-icon {
-  width: 24px; /* Размер иконки */
+  width: 24px;
   height: 24px;
-  color: transparent; /* Прозрачное сердце */
-  stroke: #000; /* Цвет рамки/линии иконки */
-  transition: color 0.3s, stroke 0.3s; /* Анимация */
+  color: transparent;
+  stroke: var(--color-text);
+  transition: color 0.3s, stroke 0.3s;
 }
 
 .add-to-favorite:hover .heart-icon {
-  stroke: #5e0964;
+  stroke: var(--color-primary-light);
 }
 
 .auth-message {
@@ -149,10 +163,14 @@
   padding: 20px;
   font-size: 18px;
   margin: 10px auto;
+  background: var(--color-bg-secondary);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
 }
 
 .auth-message p {
   margin-bottom: 15px;
+  color: var(--color-text);
 }
 
 @media (max-width: 680px) {

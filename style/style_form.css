@@ -1,6 +1,8 @@
+@import url('main_style/variables.css');
+
 body {
   font-family: "Inter", sans-serif;
-  background-color: #f9f9f9;
+  background-color: var(--color-bg);
   margin: 0;
   padding: 0;
   display: flex;
@@ -15,14 +17,15 @@ form {
   background-color: rgba(255, 255, 255, 0.5);
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
   max-width: 400px;
   width: 100%;
   text-align: center;
+  backdrop-filter: blur(5px);
 }
 
 h2 {
-  color: #667a60;
+  color: var(--color-secondary);
   margin-bottom: 20px;
   font-size: 28px;
 }
@@ -30,7 +33,7 @@ h2 {
 label {
   display: block;
   margin-bottom: 8px;
-  color: #555;
+  color: var(--color-text-secondary);
   font-size: 18px;
   text-align: left;
 }
@@ -41,22 +44,23 @@ input[type="email"] {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
+  background-color: var(--color-bg-secondary);
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus {
-  border-color: #3b4737;
+  border-color: var(--color-secondary);
   outline: none;
 }
 
 button {
-  background-color: #667a60;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
@@ -67,21 +71,22 @@ button {
 }
 
 button:hover {
-  background-color: #3b4737;
+  background-color: var(--color-secondary);
 }
 
 p {
   margin-top: 20px;
-  color: #000000;
+  color: var(--color-text);
   font-size: 16px;
 }
 
 a {
-  color: #667a60;
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: bold;
 }
 
 a:hover {
   text-decoration: underline;
+  color: var(--color-secondary);
 }

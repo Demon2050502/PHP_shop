@@ -1,6 +1,8 @@
+@import url("main_style/variables.css");
+
 .frame {
   padding: 20px;
-  background: #fff;
+  background: var(--color-bg-secondary);
   border-radius: 12px;
 }
 
@@ -13,11 +15,12 @@ main {
 }
 
 .menu {
-  background-color: #a0b299;
+  background-color: var(--color-accent);
   padding: 20px;
   width: 300px;
   border-radius: 10px;
   height: min-content;
+
   h3 {
     margin: 0;
   }
@@ -36,7 +39,7 @@ main {
   margin: 10px 0;
   padding: 10px;
   border: none;
-  background: #ffffff;
+  background: var(--color-bg-secondary);
   cursor: pointer;
   border-radius: 12px;
   font-size: 14px;
@@ -62,12 +65,12 @@ main {
 }
 
 .product-card {
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   padding: 15px;
   border-radius: 10px;
   width: 200px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  box-shadow: var(--shadow-sm);
+  background-color: var(--color-bg-secondary);
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
@@ -77,7 +80,7 @@ main {
 
 .product-card > img {
   height: 150px;
-  background-color: #f0f0f0;
+  background-color: var(--color-light);
   border-radius: 5px;
   margin-bottom: 10px;
   max-width: 100%;
@@ -115,7 +118,7 @@ main {
   width: 24px;
   height: 24px;
   color: transparent;
-  stroke: #000;
+  stroke: var(--color-text);
   transition: color 0.3s, stroke 0.3s;
 }
 
@@ -124,8 +127,7 @@ main {
   margin-bottom: 8px;
   display: block;
   width: 100%;
-
-  color: rgb(0, 0, 0);
+  color: var(--color-text);
   padding: 10px 0;
   text-align: center;
   border: none;
@@ -136,31 +138,32 @@ main {
 .product-card h3 {
   margin: 10px 0;
   font-size: 18px;
-  color: #644b6c;
+  color: var(--color-secondary);
 }
 
 .product-card p {
   margin: 5px 0;
   font-size: 14px;
-  color: #70305f;
+  color: var(--color-primary);
 }
+
 .add-to-favorite {
-  background: none; /* Убираем фон */
-  border: none; /* Убираем границу */
-  cursor: pointer; /* Изменяем курсор на указатель */
-  padding: 0; /* Убираем лишние отступы */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .add-to-favorite .heart-icon {
-  width: 24px; /* Размер иконки */
+  width: 24px;
   height: 24px;
-  color: transparent; /* Прозрачное сердце */
-  stroke: #000; /* Цвет рамки/линии иконки */
-  transition: color 0.3s, stroke 0.3s; /* Анимация */
+  color: transparent;
+  stroke: var(--color-text);
+  transition: color 0.3s, stroke 0.3s;
 }
 
 .add-to-favorite:hover .heart-icon {
-  stroke: #5e0964;
+  stroke: var(--color-primary-light);
 }
 
 .pagination {
@@ -172,23 +175,23 @@ main {
 
 .pagination button {
   padding: 8px 12px;
-  border: 1px solid #ddd;
-  background-color: #f8f8f8;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
   cursor: pointer;
   border-radius: 4px;
 }
 
 .pagination button:hover:not(:disabled) {
-  background-color: #e0e0e0;
+  background-color: var(--color-light);
 }
 
 .pagination button.active {
-  background-color: #4caf50;
-  color: white;
-  border-color: #4caf50;
+  background-color: var(--color-success);
+  color: var(--color-text-light);
+  border-color: var(--color-success);
 }
 
 .pagination button:disabled {
-  color: #aaa;
+  color: var(--color-text-secondary);
   cursor: not-allowed;
 }

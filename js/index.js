@@ -1,32 +1,138 @@
-let currentSlide = 0;
-const slides = document.querySelector(".slides");
-const dots = document.querySelectorAll(".dot");
-const totalSlides = document.querySelectorAll(".slide").length;
+document.addEventListener("DOMContentLoaded", function () {
+  class InfiniteSlider {
+    constructor(containerSelector) {
+      this.sliderContainer = document.querySelector(containerSelector);
+      this.sliderTrack = this.sliderContainer.querySelector(".slider");
+      this.slides = this.sliderTrack.querySelectorAll(".slide");
+      this.prevBtn = this.sliderContainer.querySelector(".prev");
+      this.nextBtn = this.sliderContainer.querySelector(".next");
+      this.dots = this.sliderContainer.querySelectorAll(".dot");
+      this.currentIndex = 0;
+      this.isTransitioning = false;
+      this.autoPlayInterval = null;
+      this.autoPlayDelay = 6000;
+      this.slideCount = this.slides.length - 2; // Исключаем клонированные слайды
 
-function updateSlider() {
-  slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-  dots.forEach((dot, index) => {
-    dot.classList.toggle("active", index === currentSlide);
-  });
-}
+      this.init();
+    }
 
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % totalSlides;
-  updateSlider();
-}
+    init() {
+      this.cloneSlides();
+      this.setEventListeners();
+      this.startAutoPlay();
+      this.updateSlider();
+      this.updateDots();
+    }
 
-function prevSlide() {
-  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-  updateSlider();
-}
+    cloneSlides() {
+      const firstSlide = this.slides[0].cloneNode(true);
+      const lastSlide = this.slides[this.slides.length - 1].cloneNode(true);
 
-function goToSlide(index) {
-  currentSlide = index;
-  updateSlider();
-}
+      this.sliderTrack.appendChild(firstSlide);
+      this.sliderTrack.insertBefore(lastSlide, this.slides[0]);
 
-// Автоматическая смена слайдов каждые 5 секунд
-setInterval(nextSlide, 5000);
+      this.slides = this.sliderTrack.querySelectorAll(".slide");
+      this.currentIndex = 1;
+    }
+
+    setEventListeners() {
+      this.prevBtn.addEventListener("click", () => this.prevSlide());
+      this.nextBtn.addEventListener("click", () => this.nextSlide());
+
+      this.dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => this.goToSlide(index));
+      });
+
+      this.sliderTrack.addEventListener("transitionend", () => {
+        this.isTransitioning = false;
+        this.handleSlideEnd();
+      });
+    }
+
+    goToSlide(index) {
+      if (this.isTransitioning) return;
+      this.isTransitioning = true;
+
+      // Учитываем, что у нас есть клонированные слайды
+      this.currentIndex = index + 1;
+      this.updateSlider();
+      this.updateDots();
+    }
+
+    prevSlide() {
+      if (this.isTransitioning) return;
+      this.isTransitioning = true;
+      this.currentIndex--;
+      this.updateSlider();
+      this.updateDots();
+    }
+
+    nextSlide() {
+      if (this.isTransitioning) return;
+      this.isTransitioning = true;
+      this.currentIndex++;
+      this.updateSlider();
+      this.updateDots();
+    }
+
+    updateSlider() {
+      this.sliderTrack.style.transition = "transform 0.5s ease-in-out";
+      this.sliderTrack.style.transform = `translateX(-${
+        this.currentIndex * 100
+      }%)`;
+    }
+
+    updateDots() {
+      let dotIndex;
+      if (this.currentIndex === 0) {
+        dotIndex = this.slideCount - 1;
+      } else if (this.currentIndex === this.slides.length - 1) {
+        dotIndex = 0;
+      } else {
+        dotIndex = this.currentIndex - 1;
+      }
+
+      this.dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === dotIndex);
+      });
+    }
+
+    handleSlideEnd() {
+      if (this.currentIndex === 0) {
+        this.sliderTrack.style.transition = "none";
+        this.currentIndex = this.slides.length - 2;
+        this.sliderTrack.style.transform = `translateX(-${
+          this.currentIndex * 100
+        }%)`;
+      } else if (this.currentIndex === this.slides.length - 1) {
+        this.sliderTrack.style.transition = "none";
+        this.currentIndex = 1;
+        this.sliderTrack.style.transform = `translateX(-${
+          this.currentIndex * 100
+        }%)`;
+      }
+
+      // Обновляем точки после перехода
+      this.updateDots();
+
+      // Принудительный рефлоу для корректной работы анимации
+      void this.sliderTrack.offsetWidth;
+    }
+
+    startAutoPlay() {
+      this.autoPlayInterval = setInterval(() => {
+        this.nextSlide();
+      }, this.autoPlayDelay);
+    }
+
+    stopAutoPlay() {
+      clearInterval(this.autoPlayInterval);
+    }
+  }
+
+  // Инициализация слайдера
+  const slider = new InfiniteSlider(".slider-container");
+});
 
 // Функция для динамического отображения звезд рейтинга
 function setRating(starsContainer, rating) {
