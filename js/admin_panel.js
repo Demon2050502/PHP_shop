@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function loadAuthData() {
-  fetch("../php/check_auth.php")
+  fetch("php/check_auth.php")
     .then((response) => {
       if (!response.ok) throw new Error("Network response was not ok");
       return response.json();
@@ -27,7 +27,7 @@ function loadAuthData() {
       if (data.authenticated) {
         authButtons.innerHTML = `
                     <span>${data.username}</span>
-                    <a href="../php/logout.php">Выйти</a>
+                    <a href="php/logout.php">Выйти</a>
                 `;
       } else {
         authButtons.innerHTML = '<a href="login.html">Вход / Регистрация</a>';
@@ -58,7 +58,7 @@ function loadTabContent(tabId) {
 
 // Функции для работы с товарами
 function loadProductForm(productId = null) {
-  let url = "../php/admin/get_product_form.php";
+  let url = "php/admin/get_product_form.php";
   if (productId) url += `?product_id=${productId}`;
 
   fetch(url)
@@ -81,7 +81,7 @@ function loadProductForm(productId = null) {
 }
 
 function loadProducts() {
-  fetch("../php/admin/get_products.php")
+  fetch("php/admin/get_products.php")
     .then((response) => {
       if (!response.ok) throw new Error("Network response was not ok");
       return response.text();
@@ -105,7 +105,7 @@ function setupProductForm() {
       const formData = new FormData(this);
       const action = this.getAttribute("data-action");
 
-      fetch(`../php/admin/${action}_product.php`, {
+      fetch(`php/admin/${action}_product.php`, {
         method: "POST",
         body: formData,
       })
@@ -160,7 +160,7 @@ function setupProductActions() {
       }
 
       try {
-        const response = await fetch("../php/admin/delete_product.php", {
+        const response = await fetch("php/admin/delete_product.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -196,7 +196,7 @@ function setupProductActions() {
 
 // Функции для работы с пользователями
 function loadUsers() {
-  fetch("../php/admin/get_users.php")
+  fetch("php/admin/get_users.php")
     .then((response) => {
       if (!response.ok) throw new Error("Network response was not ok");
       return response.text();
@@ -226,7 +226,7 @@ function setupUserActions() {
       }
 
       try {
-        const response = await fetch("../php/admin/delete_user.php", {
+        const response = await fetch("php/admin/delete_user.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -265,7 +265,7 @@ function setupUserActions() {
 
 // Функции для работы с заказами
 function loadOrders() {
-  fetch("../php/admin/get_orders.php")
+  fetch("php/admin/get_orders.php")
     .then((response) => {
       if (!response.ok) throw new Error("Network response was not ok");
       return response.text();
@@ -290,7 +290,7 @@ function showMessage(text, type = "success") {
 
 // Загрузка товаров с количеством отзывов
 function loadProductsWithReviews() {
-  fetch("../php/admin/get_products_with_reviews.php")
+  fetch("php/admin/get_products_with_reviews.php")
     .then((response) => {
       if (!response.ok) throw new Error("Network response was not ok");
       return response.text();
@@ -316,7 +316,7 @@ function setupBackButton() {
 }
 
 function loadProductReviews(productId, productName) {
-  fetch(`../php/admin/get_product_reviews.php?product_id=${productId}`)
+  fetch(`php/admin/get_product_reviews.php?product_id=${productId}`)
     .then((response) => {
       if (!response.ok) throw new Error("Network response was not ok");
       return response.text();
@@ -351,7 +351,7 @@ function setupReviewActions() {
       }
 
       try {
-        const response = await fetch("../php/admin/delete_review.php", {
+        const response = await fetch("php/admin/delete_review.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -416,7 +416,7 @@ function setupProductActions() {
       }
 
       try {
-        const response = await fetch("../php/admin/delete_product.php", {
+        const response = await fetch("php/admin/delete_product.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",

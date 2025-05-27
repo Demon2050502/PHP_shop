@@ -8,7 +8,7 @@ async function checkAuth() {
   }
 
   try {
-    const response = await fetch("../php/check_auth.php", {
+    const response = await fetch("php/check_auth.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ function redirectUnauthorized() {
 async function loadUserData() {
   try {
     console.log("Загрузка данных пользователя...");
-    const response = await fetch("./php/get_user_data.php");
+    const response = await fetch("php/get_user_data.php");
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => null);
@@ -77,7 +77,7 @@ async function loadUserData() {
 // Функция для изменения пароля
 async function changePassword(oldPassword, newPassword) {
   try {
-    const response = await fetch("./php/change_password.php", {
+    const response = await fetch("php/change_password.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

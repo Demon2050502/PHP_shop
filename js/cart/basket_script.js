@@ -5,7 +5,7 @@ async function addToCart(productId) {
 
   const userId = localStorage.getItem("authToken");
 
-  const response = await fetch("./php/add_to_cart.php", {
+  const response = await fetch("php/add_to_cart.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

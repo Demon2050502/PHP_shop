@@ -7,22 +7,24 @@
     <link rel="stylesheet" href="style/modal_window/style_alert_wodal.css" />
   </head>
   <body>
-    <h2>Регистрация</h2>
-    <form id="register-form">
-      <label for="username">Логин:</label>
-      <input type="text" id="username" name="username" required /><br />
+    <div class="form-container">
+      <h2>Регистрация</h2>
+      <form id="register-form">
+        <label for="username">Логин:</label>
+        <input type="text" id="username" name="username" required />
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required /><br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
 
-      <label for="password">Пароль:</label>
-      <input type="password" id="password" name="password" required /><br />
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required />
 
-      <button type="submit">Зарегистрироваться</button>
-    </form>
-    <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+        <button type="submit">Зарегистрироваться</button>
+      </form>
+      <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+    </div>
 
-    <script src="js/form.js"></script>
+    <script src="js/register.js"></script>
     <script src="js/alert_auth.js"></script>
   </body>
 </html>

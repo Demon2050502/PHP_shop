@@ -13,12 +13,14 @@ async function toggleHeart(icon, itemId) {
   const isCurrentlyFavorite = icon.classList.contains("active");
   const newFavoriteState = !isCurrentlyFavorite;
 
+  const userId = localStorage.getItem("authToken");
+
   try {
-    const response = await fetch("./php/favorite/toggle_favorite.php", {
+    const response = await fetch("php/favorite/toggle_favorite.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        userId,
+        userId: userId,
         productId: itemId,
         isFavorite: newFavoriteState,
       }),

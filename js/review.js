@@ -12,7 +12,7 @@ async function checkAuth() {
   if (!token) return false;
 
   try {
-    const response = await fetch("../php/check_auth.php", {
+    const response = await fetch("php/check_auth.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +29,7 @@ async function checkAuth() {
 
 // Загрузка товаров
 async function fetchProducts() {
-  const response = await fetch("../php/get_products.php");
+  const response = await fetch("php/get_products.php");
   const data = await response.json();
   return data.products || data;
 }

@@ -1,5 +1,5 @@
 async function fetchCart() {
-  const response = await fetch("./php/cart/get_cart.php");
+  const response = await fetch("php/cart/get_cart.php");
   const data = await response.json();
   return data;
 }
@@ -31,7 +31,7 @@ function renderCart(cart) {
 }
 
 async function removeFromCart(cartId) {
-  const response = await fetch(`../php/cart/remove_from_cart.php?id=${cartId}`);
+  const response = await fetch(`php/cart/remove_from_cart.php?id=${cartId}`);
   const data = await response.json();
   alert(data.message);
   const cart = await fetchCart();
@@ -40,7 +40,7 @@ async function removeFromCart(cartId) {
 
 async function increaseQuantity(cartId) {
   const response = await fetch(
-    `../php/cart/increase_quantity.php?id=${cartId}`
+    `php/cart/increase_quantity.php?id=${cartId}`
   );
   const data = await response.json();
   if (data.status === "success") {
@@ -54,7 +54,7 @@ async function increaseQuantity(cartId) {
 
 async function decreaseQuantity(cartId) {
   const response = await fetch(
-    `../php/cart/decrease_quantity.php?id=${cartId}`
+    `php/cart/decrease_quantity.php?id=${cartId}`
   );
   const data = await response.json();
   if (data.status === "success") {
@@ -95,7 +95,7 @@ async function checkAuth() {
   }
 
   try {
-    const response = await fetch("../php/check_auth.php", {
+    const response = await fetch("php/check_auth.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

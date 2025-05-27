@@ -9,7 +9,7 @@ async function checkAuth() {
   }
 
   try {
-    const response = await fetch("../php/check_auth.php", {
+    const response = await fetch("php/check_auth.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,18 +33,18 @@ async function checkAuth() {
 // Функция для загрузки избранных товаров с сервера
 async function fetchFavorites() {
   try {
-    const response = await fetch("../php/favorite/get_favorites.php");
-    const data = await response.json(); // Парсим ответ сервера
+    const response = await fetch("php/favorite/get_favorites.php");
+    const data = await response.json();
 
     if (data.status === "success") {
-      return data.favorites; // Возвращаем массив избранных товаров
+      return data.favorites;
     } else {
       console.error("Ошибка при загрузке избранных товаров:", data.message);
-      return []; // Возвращаем пустой массив в случае ошибки
+      return [];
     }
   } catch (error) {
     console.error("Ошибка при загрузке избранных товаров:", error);
-    return []; // Возвращаем пустой массив в случае ошибки
+    return [];
   }
 }
 
