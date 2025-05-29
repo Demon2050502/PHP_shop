@@ -83,19 +83,96 @@
     </main>
 
     <footer>
-      <div>
-        <div>
-          <h3>Адрес</h3>
-          <p>Улица Пушкина, дом Колотушкина, Квартира Петрова</p>
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-logo">
+            <div class="logo-placeholder"></div>
+            <div class="footer-slogan">
+              Современные решения для вашего бизнеса
+            </div>
+          </div>
+          <div class="footer-top-right">
+            <button class="btn-top" aria-label="Прокрутить вверх">
+              &#9650;
+            </button>
+          </div>
         </div>
 
-        <div>
-          <h3>Телефон</h3>
-          <p>+7(777)777-77-77</p>
+        <div class="footer-main">
+          <div class="footer-column footer-nav">
+            <h3>Навигация</h3>
+            <ul>
+              <li><a href="#">Главная</a></li>
+              <li><a href="#">О нас</a></li>
+              <li><a href="#">Услуги</a></li>
+              <li><a href="#">Портфолио</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Контакты</h3>
+            <div class="contact-item">
+              <div class="contact-icon">&#128204;</div>
+              <span>ул. Примерная, 123, Москва</span>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">&#128222;</div>
+              <span>+7 (999) 123-45-67</span>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">&#9993;</div>
+              <span>info@example.ru</span>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">&#128339;</div>
+              <span>Пн-Пт: 9:00-18:00</span>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3>Мы в соцсетях</h3>
+            <div class="social-icons">
+              <a href="#" class="social-icon facebook" aria-label="Facebook"
+                >f</a
+              >
+              <a href="#" class="social-icon instagram" aria-label="Instagram"
+                >in</a
+              >
+              <a href="#" class="social-icon twitter" aria-label="Twitter">t</a>
+              <a href="#" class="social-icon youtube" aria-label="YouTube"
+                >yt</a
+              >
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3>Будьте в курсе</h3>
+            <p>
+              Подпишитесь на нашу рассылку, чтобы получать последние новости и
+              специальные предложения.
+            </p>
+            <div class="subscription-form">
+              <div class="form-input">
+                <input
+                  type="email"
+                  placeholder="Ваш email"
+                  aria-label="Ваш email"
+                />
+                <button type="submit">Подписаться</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="copyright">© 2025. Все права защищены.</div>
+          <div class="legal-links">
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Условия использования</a>
+          </div>
         </div>
       </div>
-
-      <p>&copy; 2025 Чемпионы. Все права защищены.</p>
     </footer>
 
     <!-- Модальное окно для изменения пароля -->
@@ -128,6 +205,8 @@
     </div>
   </body>
 
+  <script src="js/main_js/main.js"></script>
+  <script src="js/main_js/footer.js"></script>
+
   <script src="js/office.js"></script>
-  <script src="js/main.js"></script>
 </html>

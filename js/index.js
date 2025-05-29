@@ -182,7 +182,7 @@ async function displayRandomProducts() {
             <button class="open-reviews" onclick="openReviewModal(${
               product.id
             }, '${product.name}', '${product.image}')">
-              <img src="img_sait/reviews.svg">
+              <img src="img_sait/cart/reviews.svg">
             </button>
             <button class="add-to-cart" onclick="addToCart(${
               product.id
