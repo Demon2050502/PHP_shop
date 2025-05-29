@@ -4,80 +4,103 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Личный аккаунт</title>
-    <link rel="stylesheet" href="style/style_office.css" />
-    <link rel="stylesheet" href="style/main_style/main.css" />
     <link rel="stylesheet" href="style/main_style/header.css" />
+    <link rel="stylesheet" href="style/main_style/main.css" />
     <link rel="stylesheet" href="style/main_style/footer.css" />
+    <link rel="stylesheet" href="style/main_style/background.css" />
+
+    <link rel="stylesheet" href="style/style_office.css" />
   </head>
 
   <body>
     <header>
-      <div class="auth-buttons" id="authButtons">
-        <!-- Сюда будет вставлен контент через JavaScript -->
-      </div>
+      <button class="menu-toggle" id="menuToggle">
+        <img src="img_sait/header/menu-icon.svg" alt="Меню" />
+      </button>
 
-      <nav>
-        <a href="basket.html"><img src="img_sait/header/icon_basket.svg" /></a>
-        <a href="favourite.html">
-          <img src="img_sait/header/icon_favourite.svg" />
+      <div class="auth-buttons" id="authButtons"></div>
+
+      <div class="overlay" id="overlay"></div>
+
+      <nav id="mainNav">
+        <a href="index.html" class="active">
+          <img src="img_sait/header/icon_home.svg" alt="Главная" />
+          <span>Главная</span>
         </a>
-        <a href="office.html"><img src="img_sait/header/icon_office.svg" /></a>
-        <a href="review.html"><img src="img_sait/header/icon_review.svg" /></a>
-        <a href="index.html"><img src="img_sait/header/icon_home.svg" /></a>
+        <a href="basket.html">
+          <img src="img_sait/header/icon_basket.svg" alt="Корзина" />
+          <span>Корзина</span>
+        </a>
+        <a href="favourite.html">
+          <img src="img_sait/header/icon_favourite.svg" alt="Избранное" />
+          <span>Избранное</span>
+        </a>
+        <a href="office.html">
+          <img src="img_sait/header/icon_office.svg" alt="Кабинет" />
+          <span>Кабинет</span>
+        </a>
+        <a href="review.html">
+          <img src="img_sait/header/icon_review.svg" alt="Отзывы" />
+          <span>Отзывы</span>
+        </a>
       </nav>
     </header>
 
-    <main class="cart-container">
-      <div class="main-info">
-        <img src="" id="userAvatar" />
+    <main>
+      <div class="sakura-background"></div>
 
-        <h2 class="">
-          <span id="UserName">Имя</span>
-          <a href="#" id="editProfile">Изменить профиль</a>
-        </h2>
+      <div class="cart-container main-content">
+        <div class="main-info">
+          <img src="" id="userAvatar" />
 
-        <div class="frame">
-          <div class="info">
-            <h3>Личная информация</h3>
-            <a href="review.html">Главная</a>
-            <a href="#">Наша карта</a>
-            <a href="#">Способ оплаты</a>
-          </div>
+          <h2 class="">
+            <span id="UserName">Имя</span>
+            <button id="editProfile">Изменить профиль</button>
+          </h2>
 
-          <div class="info">
-            <h3>Заказы</h3>
-            <a href="basket.html">Моя корзина</a>
-            <a href="#">Мои заказы</a>
-            <a href="#">Мои возвраты</a>
-          </div>
+          <div class="frame">
+            <div class="info">
+              <h3>Личная информация</h3>
+              <a href="review.html">Главная</a>
+              <a href="#">Наша карта</a>
+              <a href="#">Способ оплаты</a>
+            </div>
 
-          <div class="info">
-            <h3>Безопасность</h3>
-            <button id="changePasswordBtn">Изменить пароль</button>
-          </div>
-        </div>
-      </div>
+            <div class="info">
+              <h3>Заказы</h3>
+              <a href="basket.html">Моя корзина</a>
+              <a href="#">Мои заказы</a>
+              <a href="#">Мои возвраты</a>
+            </div>
 
-      <div class="main-cart">
-        <h2>Купленные недавно</h2>
-
-        <div class="buy-cart frame" id="">
-          <!-- В процессе -->
-          Пусто
-        </div>
-
-        <h2>Финансы</h2>
-
-        <div class="cart-bank frame">
-          <div>
-            <img src="img_sait/image_office.png" />
-            <div class="cart-bank-info">
-              <p>Наша карта</p>
-              <h3>0 ₽</h3>
+            <div class="info">
+              <h3>Безопасность</h3>
+              <button id="changePasswordBtn">Изменить пароль</button>
             </div>
           </div>
+        </div>
 
-          <a href="#">Пополнить</a>
+        <div class="main-cart">
+          <h2>Купленные недавно</h2>
+
+          <div class="buy-cart frame" id="">
+            <!-- В процессе -->
+            Пусто
+          </div>
+
+          <h2>Финансы</h2>
+
+          <div class="cart-bank frame">
+            <div>
+              <img src="img_sait/image_office.png" />
+              <div class="cart-bank-info">
+                <p>Наша карта</p>
+                <h3>0 ₽</h3>
+              </div>
+            </div>
+
+            <button>Пополнить</button>
+          </div>
         </div>
       </div>
     </main>
@@ -205,8 +228,10 @@
     </div>
   </body>
 
+  <script src="js/main_js/header.js"></script>
   <script src="js/main_js/main.js"></script>
   <script src="js/main_js/footer.js"></script>
+  <script src="js/main_js/background.js"></script>
 
   <script src="js/office.js"></script>
 </html>

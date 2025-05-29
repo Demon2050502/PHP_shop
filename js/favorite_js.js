@@ -99,7 +99,7 @@ function createFavoriteCard(item) {
               <button class="open-reviews" onclick="openReviewModal(${
                 item.id
               }, '${item.name}', '${item.image}')">
-                  <img src="img_sait/reviews.svg">
+                  <img src="img_sait/cart/reviews.svg">
               </button>
             <button class="add-to-cart" onclick="addToCart(${
               item.id

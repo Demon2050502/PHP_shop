@@ -6,7 +6,7 @@
   border-radius: 12px;
 }
 
-main {
+.main-content {
   margin: 0 auto;
   padding: 20px;
   display: flex;
@@ -22,7 +22,7 @@ main {
   height: min-content;
 
   h3 {
-    margin: 0;
+    color: var(--color-text);
   }
 }
 
@@ -39,7 +39,6 @@ main {
   margin: 10px 0;
   padding: 10px;
   border: none;
-  background: var(--color-bg-secondary);
   cursor: pointer;
   border-radius: 12px;
   font-size: 14px;
@@ -48,6 +47,14 @@ main {
 
 .category-filter > h4 {
   margin: 10px 5px;
+}
+
+.category-filter > label {
+  color: var(--color-text-light);
+
+  input {
+    margin-right: 2px;
+  }
 }
 
 .container {
@@ -174,6 +181,7 @@ main {
 }
 
 .pagination button {
+  color: var(--color-secondary);
   padding: 8px 12px;
   border: 1px solid var(--color-border);
   background-color: var(--color-bg);
@@ -186,9 +194,9 @@ main {
 }
 
 .pagination button.active {
-  background-color: var(--color-success);
+  background-color: var(--color-secondary);
   color: var(--color-text-light);
-  border-color: var(--color-success);
+  border-color: var(--color-secondary);
 }
 
 .pagination button:disabled {

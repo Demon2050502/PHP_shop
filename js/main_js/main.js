@@ -1,26 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const menuToggle = document.getElementById("menuToggle");
-  const dropdownMenu = document.getElementById("dropdownMenu");
-
-  menuToggle.addEventListener("click", function () {
-    dropdownMenu.classList.toggle("active");
-
-    // Закрытие меню при клике вне его области
-    if (dropdownMenu.classList.contains("active")) {
-      document.addEventListener("click", closeMenuOnClickOutside);
-    } else {
-      document.removeEventListener("click", closeMenuOnClickOutside);
-    }
-  });
-
-  function closeMenuOnClickOutside(event) {
-    if (!dropdownMenu.contains(event.target) && event.target !== menuToggle) {
-      dropdownMenu.classList.remove("active");
-      document.removeEventListener("click", closeMenuOnClickOutside);
-    }
-  }
-});
-
 async function loadAuthData_main() {
   try {
     const response = await fetch("php/check_auth.php");
@@ -36,14 +13,15 @@ async function loadAuthData_main() {
       }
 
       authButtons.innerHTML = `
-        <span>${data.username}</span>
         ${adminLink}
+        <span>${data.username}</span>
         <a href="php/logout.php">Выйти</a>
       `;
     } else {
       // Если пользователь не авторизован
       authButtons.innerHTML = `
-        <a href="login.html">Вход / Регистрация</a>
+        <a href="login.html" class="auth-button login-btn">Войти</a>
+        <a href="register.html" class="auth-button register-btn">Регистрация</a>
       `;
     }
   } catch (error) {

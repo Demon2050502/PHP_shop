@@ -1,5 +1,10 @@
 @import url("main_style/variables.css");
 
+.main-content {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
 .slider-container {
   width: 100%;
   max-width: 1200px;

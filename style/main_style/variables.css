@@ -1,32 +1,38 @@
 :root {
-  /* Основная цветовая палитра */
-  --color-primary: #2f6690;
-  --color-primary-light: #3a7ca5;
-  --color-secondary: #16425b;
-  --color-accent: #81c3d7;
-  --color-light: #d9dcd6;
+  /* Новая цветовая палитра в стиле сакуры */
+  --color-primary: #e8b4bc;       /* Нежно-розовый */
+  --color-primary-light: #f3d7dc; /* Светло-розовый */
+  --color-secondary: #d48a9d;     /* Розово-коралловый */
+  --color-accent: #a56b82;        /* Пыльно-розовый */
+  --color-light: #f8e9ec;         /* Очень светлый розовый */
+
+  /* Цвета для фона и лепестков */
+  --sakura-color: rgba(232, 180, 188, 0.7); /* Полупрозрачный розовый */
+  --sakura-dark: #d48a9d;                    /* Темно-розовый */
+  --main-bg-color: #fff9fb;                  /* Очень светлый розовый фон */
+  --sakura-petal: rgba(255, 183, 197, 0.6);  /* Цвет лепестков */
 
   /* Текст */
-  --color-text: #000000;
-  --color-text-light: #ffffff;
-  --color-text-secondary: #555555;
+  --color-text: #5a3a4a;          /* Темно-пурпурный */
+  --color-text-light: #ffffff;     /* Белый */
+  --color-text-secondary: #8c6a7a; /* Серо-розовый */
 
   /* Фоны */
-  --color-bg: #f9f9f9;
-  --color-bg-secondary: #ffffff;
+  --color-bg: #fdf2f5;            /* Очень светлый розовый */
+  --color-bg-secondary: #ffffff;  /* Белый */
 
   /* Границы */
-  --color-border: #e0e0e0;
+  --color-border: #e8b4bc;        /* Нежно-розовый */
 
   /* Состояния */
-  --color-hover: #1a5276;
-  --color-active: #154360;
-  --color-error: #e74c3c;
-  --color-success: #2ecc71;
-  --color-warning: #f39c12;
+  --color-hover: #c97b8f;         /* Ярко-розовый */
+  --color-active: #b25d74;        /* Темно-розовый */
+  --color-error: #e74c3c;         /* Красный (оставить) */
+  --color-success: #88c9a1;       /* Мятно-зеленый */
+  --color-warning: #f1c27d;       /* Персиковый */
 
   /* Тени */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 2px 4px rgba(218, 138, 157, 0.1);
+  --shadow-md: 0 4px 8px rgba(218, 138, 157, 0.15);
+  --shadow-lg: 0 8px 16px rgba(218, 138, 157, 0.2);
 }

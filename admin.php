@@ -31,12 +31,35 @@ if (!isset($_SESSION['user_id']) || !isAdmin($_SESSION['user_id'])) {
 
 <body>
     <header>
+        <button class="menu-toggle" id="menuToggle">
+            <img src="img_sait/header/menu-icon.svg" alt="Меню" />
+        </button>
+
         <div class="auth-buttons" id="authButtons"></div>
-        <nav>
-            <a href="basket.html"><img src="img_sait/icon_basket.svg"></a>
-            <a href="favourite.html"><img src="img_sait/icon_favourite.svg"></a>
-            <a href="office.html"><img src="img_sait/icon_office.svg"></a>
-            <a href="review.html"><img src="img_sait/icon_review.svg"></a>
+
+        <div class="overlay" id="overlay"></div>
+
+        <nav id="mainNav">
+            <a href="index.html" class="active">
+                <img src="img_sait/header/icon_home.svg" alt="Главная" />
+                <span>Главная</span>
+            </a>
+            <a href="basket.html">
+                <img src="img_sait/header/icon_basket.svg" alt="Корзина" />
+                <span>Корзина</span>
+            </a>
+            <a href="favourite.html">
+                <img src="img_sait/header/icon_favourite.svg" alt="Избранное" />
+                <span>Избранное</span>
+            </a>
+            <a href="office.html">
+                <img src="img_sait/header/icon_office.svg" alt="Кабинет" />
+                <span>Кабинет</span>
+            </a>
+            <a href="review.html">
+                <img src="img_sait/header/icon_review.svg" alt="Отзывы" />
+                <span>Отзывы</span>
+            </a>
         </nav>
     </header>
 
@@ -76,6 +99,8 @@ if (!isset($_SESSION['user_id']) || !isAdmin($_SESSION['user_id'])) {
             </section>
         </main>
     </div>
+
+    <script src="js/main_js/header.js"></script>
 
     <script src="js/admin_panel.js"></script>
 </body>

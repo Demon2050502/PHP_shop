@@ -4,7 +4,7 @@ document.getElementById("submitReview").addEventListener("click", async () => {
     .getElementById("reviewModal")
     .getAttribute("data-product-id");
   const rating = document.querySelector('input[name="rating"]:checked')?.value;
-  
+
   const authChecked = await checkAuthWithAlert();
   if (!authChecked) return;
 
@@ -17,6 +17,8 @@ document.getElementById("submitReview").addEventListener("click", async () => {
     alert("Пожалуйста, выберите рейтинг");
     return;
   }
+
+  const token = localStorage.getItem("authToken");
 
   const response = await fetch("./php/reviews/add_review.php", {
     method: "POST",
@@ -153,5 +155,3 @@ async function displayReviews(productId) {
   // Обновляем средний рейтинг после загрузки отзывов
   await displayAverageRating(productId);
 }
-
-

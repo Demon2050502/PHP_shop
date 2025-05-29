@@ -39,10 +39,12 @@
   font-size: 24px;
 }
 
-.main-info > h2 > a {
+.main-info > h2 > button {
+  padding: 10px 20px;
   text-align: center;
-  text-decoration: none;
-  color: var(--color-text);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
   font-size: 16px;
 }
 
@@ -63,7 +65,7 @@
   font-size: 14px;
   font-weight: 400;
   text-decoration: none;
-  color: var(--color-text-secondary);
+  color: var(--color-text-light);
 }
 
 #changePasswordBtn {
@@ -71,7 +73,6 @@
   margin: 10px 0;
   padding: 10px;
   border: none;
-  background: var(--color-bg-secondary);
   cursor: pointer;
   border-radius: 12px;
   font-size: 14px;
@@ -90,22 +91,6 @@
   gap: 20px;
 }
 
-.buy-cart > div {
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
-  align-items: center;
-  box-shadow: var(--shadow-lg);
-  border-radius: 12px;
-  padding: 10px 20px;
-  flex-shrink: 0;
-  background: var(--color-bg-secondary);
-}
-
-.buy-cart > div > img {
-  width: 100px;
-}
-
 .cart-bank {
   display: flex;
   flex-direction: column;
@@ -115,7 +100,15 @@
   box-shadow: var(--shadow-lg);
   border-radius: 12px;
   padding: 10px 20px;
-  background: var(--color-bg-secondary);
+
+  button {
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+  }
 }
 
 .cart-bank > div {
@@ -136,12 +129,11 @@
 }
 
 .cart-bank-info > p {
-  margin: 0;
   font-size: 18px;
 }
 
 .cart-bank-info > h3 {
-  margin: 0;
+  color: var(--color-text-light);
 }
 
 .cart-bank > a {

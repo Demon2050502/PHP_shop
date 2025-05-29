@@ -1,8 +1,12 @@
 @import url("variables.css");
 
 footer {
-  background-color: var(--color-accent);
-  color: var(--color-text);
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary-light),
+    var(--color-secondary)
+  );
+  color: var(--color-text-light);
 }
 
 .footer-container {
@@ -17,7 +21,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #2a2a2a;
+  border-bottom: 1px solid var(--sakura-color);
 }
 
 .footer-logo {
@@ -28,14 +32,16 @@ footer {
 .logo-placeholder {
   width: 40px;
   height: 40px;
-  background-color: #3498db;
   border-radius: 8px;
   margin-right: 15px;
+  background-image: url(../../img_sait/footer/logo.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .footer-slogan {
   font-size: 16px;
-  color: var(--color-text);
+  color: var(--color-secondary);
 }
 
 .footer-top-right {
@@ -45,7 +51,6 @@ footer {
 .btn-top {
   background-color: transparent;
   border: 2px solid #2a2a2a;
-  color: var(--color-text-secondary);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -53,11 +58,6 @@ footer {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-}
-
-.btn-top:hover {
-  background-color: #3498db;
-  border-color: #3498db;
 }
 
 /* Основная секция подвала */
@@ -80,7 +80,7 @@ footer {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 20px;
-  color: var(--color-text);
+  color: var(--color-text-light);
 }
 
 .footer-column p {
@@ -96,13 +96,12 @@ footer {
 }
 
 .footer-nav a {
-  color: var(--color-text-secondary);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-nav a:hover {
-  color: var(--color-hover);
+  color: var(--color-text-light);
 }
 
 /* Контактная информация */
@@ -134,7 +133,7 @@ footer {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: var(--color-bg);
+  background-color: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,33 +175,33 @@ footer {
 
 .form-input {
   display: flex;
+  gap: 2px;
   margin-top: 15px;
 }
 
 .form-input input {
   padding: 10px 15px;
   border: none;
-  background-color: #2a2a2a;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--sakura-color);
   color: var(--color-text-light);
   flex-grow: 1;
-  font-family: "Roboto", sans-serif;
 }
 
 .form-input input:focus {
-  outline: 1px solid #3498db;
+  outline: 1px solid var(--color-text-light);
 }
 
 .form-input button {
   padding: 10px 20px;
-  background-color: #3498db;
   border: none;
-  color: var(--color-text);
+  background-color: var(--color-accent);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .form-input button:hover {
-  background-color: var(--color-hover);
+  background-color: var(--color-primary);
 }
 
 /* Нижняя секция подвала */
@@ -215,7 +214,7 @@ footer {
 }
 
 .copyright {
-  color: var(--color-text-secondary);
+  color: var(--color-light);
   font-size: 12px;
 }
 
@@ -225,14 +224,14 @@ footer {
 }
 
 .legal-links a {
-  color: var(--color-text-secondary);
+  color: var(--color-light);
   text-decoration: none;
   font-size: 12px;
   transition: color 0.3s ease;
 }
 
 .legal-links a:hover {
-  color: var(--color-hover);
+  color: var(--color-text-light);
 }
 
 /* Адаптивный дизайн */

@@ -1,16 +1,12 @@
-@import url('main_style/variables.css');
+@import url("main_style/variables.css");
 
-body {
-  font-family: "Inter", sans-serif;
-  background-color: var(--color-bg);
-  margin: 0;
-  padding: 0;
+main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-image: url("https://www.transparenttextures.com/patterns/flowers.png");
+  text-align: center;
+  background-image: url(../img_sait/sakura-background.avif);
 }
 
 form {

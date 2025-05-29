@@ -5,23 +5,34 @@
     <title>Вход</title>
     <link rel="stylesheet" href="style/style_form.css" />
     <link rel="stylesheet" href="style/modal_window/style_alert_wodal.css" />
+
+    <link rel="stylesheet" href="style/main_style/main.css" />
+    <link rel="stylesheet" href="style/main_style/background.css" />
   </head>
   <body>
-    <div class="form-container">
-      <h2>Вход</h2>
-      <form id="login-form">
-        <label for="username">Имя пользователя</label>
-        <input type="text" name="username" id="username" required />
+    <main>
+      <div class="sakura-background"></div>
 
-        <label for="password">Пароль</label>
-        <input type="password" name="password" id="password" required />
+      <div class="main-content">
+        <form id="login-form">
+          <h2>Вход</h2>
 
-        <button type="submit">Войти</button>
-      </form>
-      <p>Нет аккаунта? <a href="register.html">Зарегистрируйтесь</a></p>
-    </div>
+          <label for="username">Имя пользователя</label>
+          <input type="text" name="username" id="username" required />
+
+          <label for="password">Пароль</label>
+          <input type="password" name="password" id="password" required />
+
+          <button type="submit">Войти</button>
+
+          <p>Нет аккаунта? <a href="register.html">Зарегистрируйтесь</a></p>
+        </form>
+      </div>
+    </main>
 
     <script src="js/auth/login.js"></script>
     <script src="js/alert_auth.js"></script>
+
+    <script src="js/main_js/background.js"></script>
   </body>
 </html>

@@ -5,26 +5,37 @@
     <title>Регистрация</title>
     <link rel="stylesheet" href="style/style_form.css" />
     <link rel="stylesheet" href="style/modal_window/style_alert_wodal.css" />
+
+    <link rel="stylesheet" href="style/main_style/main.css" />
+    <link rel="stylesheet" href="style/main_style/background.css" />
   </head>
   <body>
-    <div class="form-container">
-      <h2>Регистрация</h2>
-      <form id="register-form">
-        <label for="username">Логин:</label>
-        <input type="text" id="username" name="username" required />
+    <main>
+      <div class="sakura-background"></div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+      <div class="main-content">
+        <form id="register-form">
+          <h2>Регистрация</h2>
 
-        <label for="password">Пароль:</label>
-        <input type="password" id="password" name="password" required />
+          <label for="username">Логин:</label>
+          <input type="text" id="username" name="username" required />
 
-        <button type="submit">Зарегистрироваться</button>
-      </form>
-      <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
-    </div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="password">Пароль:</label>
+          <input type="password" id="password" name="password" required />
+
+          <button type="submit">Зарегистрироваться</button>
+
+          <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+        </form>
+      </div>
+    </main>
 
     <script src="js/auth/register.js"></script>
     <script src="js/alert_auth.js"></script>
+
+    <script src="js/main_js/background.js"></script>
   </body>
 </html>
