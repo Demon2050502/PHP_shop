@@ -6,6 +6,8 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-size: cover;
+  background-position: center;
   background-image: url(../img_sait/sakura-background.avif);
 }
 
