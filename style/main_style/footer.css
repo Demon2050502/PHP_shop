@@ -171,37 +171,34 @@ footer {
 /* Форма подписки */
 .subscription-form {
   margin-top: 15px;
-}
-
-.form-input {
   display: flex;
   gap: 2px;
   margin-top: 15px;
-}
 
-.form-input input {
-  padding: 10px 15px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid var(--sakura-color);
-  color: var(--color-text-light);
-  flex-grow: 1;
-}
+  input {
+    padding: 10px 15px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--sakura-color);
+    color: var(--color-text-light);
+    flex-grow: 1;
+  }
 
-.form-input input:focus {
-  outline: 1px solid var(--color-text-light);
-}
+  input:focus {
+    outline: 1px solid var(--color-text-light);
+  }
 
-.form-input button {
-  padding: 10px 20px;
-  border: none;
-  background-color: var(--color-accent);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+  button {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--color-accent);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
 
-.form-input button:hover {
-  background-color: var(--color-primary);
+  button:hover {
+    background-color: var(--color-primary);
+  }
 }
 
 /* Нижняя секция подвала */
@@ -276,5 +273,11 @@ footer {
 
   .btn-top {
     margin-top: 20px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1250px) {
+  .subscription-form {
+    flex-direction: column;
   }
 }

@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $response['success'] = true;
         $response['user_id'] = $user_id;
-        $response['redirect'] = '../review.html';
+        $response['redirect'] = 'index.html';
     } else {
         $response['message'] = "Ошибка при регистрации: " . $conn->error;
     }

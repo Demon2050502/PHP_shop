@@ -68,11 +68,11 @@ UPDATE users SET is_admin = TRUE WHERE username = 'admin';
 
 -- Вставляем данные в таблицу products
 INSERT INTO products (name, price, category, image, description) VALUES
-('Lenovo IdeaPad Slim 3 15AMN8 Ноутбук 15.6', 39290.00, 'Ноутбуки', 'https://ir.ozone.ru/s3/multimedia-1-v/wc1000/7152993091.jpg', '-'),
-('ноутбук игровой мощный 15.6', 41047.00, 'Ноутбуки', 'https://ir.ozone.ru/s3/multimedia-1-z/wc1000/7194541139.jpg', '-'),
-('Компьютерс Системный блок КК10', 49248.00, 'Системный блок', 'https://ir.ozone.ru/s3/multimedia-1-v/wc1000/7008797983.jpg', '-'),
-('Robotcomp Системный блок M-16 3.0 V3', 99828.00, 'Системный блок', 'https://ir.ozone.ru/s3/multimedia-t/wc1000/6809974697.jpg', '-'),
-('Apple MacBook Air 13 Ноутбук 13.6', 136990.00, 'Ноутбуки', 'https://ir.ozone.ru/s3/multimedia-w/wc1000/6454005608.jpg', '-'),
-('Robotcomp Системный блок M-16 3.0 Plus White', 100473.00, 'Системный блок', 'https://ir.ozone.ru/s3/multimedia-1-1/wc1000/7287705469.jpg', '-'),
-('Lenovo LOQ 15IRX9 Игровой ноутбук 15.6', 121990.00, 'Ноутбуки', 'https://ir.ozone.ru/s3/multimedia-1-q/wc1000/7126229138.jpg', '-'),
-('Lenovo Legion Pro 5 16ARX8 Игровой ноутбук 16', 151990.00, 'Ноутбуки', 'https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7168012100.jpg', '-');
+('Аниме брелок акриловый линии геншин импакт', 101.00, 'геншин', 'img_sait/cart_img/cart_1.png', '-'),
+('Аниме брелок акриловый линии геншин импакт', 90.00, 'геншин', 'img_sait/cart_img/cart_2.png', '-'),
+('Аниме брелок акриловый линии геншин импакт', 98.00, 'геншин', 'img_sait/cart_img/cart_3.png', '-'),
+('Аниме брелок акриловый линии геншин импакт', 98.00, 'геншин', 'img_sait/cart_img/cart_4.png', '-'),
+('Аниме брелок акриловый линии геншин импакт', 101.00, 'геншин', 'img_sait/cart_img/cart_5.png', '-'),
+('Аниме брелок акриловый линии геншин импакт', 86.00, 'геншин', 'img_sait/cart_img/cart_6.png', '-'),
+('Аниме брелок акриловый линии геншин импакт', 82.00, 'геншин', 'img_sait/cart_img/cart_7.png', '-'),
+('Аниме брелок акриловый линии геншин импакт', 101.00, 'геншин', 'img_sait/cart_img/cart_8.png', '-');

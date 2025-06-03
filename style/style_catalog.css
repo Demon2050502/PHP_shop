@@ -1,0 +1,103 @@
+@import url("main_style/variables.css");
+
+.frame {
+  padding: 20px;
+  background: var(--color-bg-secondary);
+  border-radius: 12px;
+}
+
+.main-content {
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.menu {
+  background-color: var(--color-accent);
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  height: min-content;
+
+  h3 {
+    color: var(--color-text);
+  }
+}
+
+.filters,
+.category-filter,
+.special-offers-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filters > button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.category-filter > h4 {
+  margin: 10px 5px;
+}
+
+.category-filter > label {
+  color: var(--color-text-light);
+
+  input {
+    margin-right: 2px;
+  }
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 5px;
+}
+
+.pagination button {
+  color: var(--color-secondary);
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: var(--color-light);
+}
+
+.pagination button.active {
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+  border-color: var(--color-secondary);
+}
+
+.pagination button:disabled {
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+}

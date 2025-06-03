@@ -177,10 +177,13 @@ header {
     }
 
     nav {
-      position: absolute;
-      top: 100%;
-      right: -100%;
-      width: 100%;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      width: 100vw;
+      display: flex;
+      opacity: 0;
       height: auto;
       background-color: var(--color-primary);
       flex-direction: column;
@@ -194,12 +197,14 @@ header {
       max-height: 0;
       overflow: hidden;
       transition: all 0.4s ease;
+      transform: translateX(100%);
     }
 
     nav.active {
-      right: 0;
+      opacity: 1;
       max-height: 500px;
       padding: 20px 0;
+      transform: translateX(0);
     }
 
     nav a {

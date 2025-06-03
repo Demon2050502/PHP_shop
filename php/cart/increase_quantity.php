@@ -3,7 +3,6 @@ require '../db.php';
 
 $cartId = $_GET['id'];
 
-// Увеличиваем количество на 1
 $sql = "UPDATE cart SET quantity = quantity + 1 WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $cartId);

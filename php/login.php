@@ -7,7 +7,6 @@ header('Content-Type: application/json');
 $response = ['success' => false, 'message' => ''];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Проверяем, что данные переданы
     if (!isset($_POST['username']) || !isset($_POST['password'])) {
         $response['message'] = "Ошибка: данные формы не переданы.";
         echo json_encode($response);
@@ -17,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    // Проверяем, что поля не пустые
     if (empty($username) || empty($password)) {
         $response['message'] = "Ошибка: имя пользователя и пароль не могут быть пустыми.";
         echo json_encode($response);
@@ -36,13 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Проверяем пароль
         if (password_verify($password, $hashed_password)) {
-            // Успешный вход
             $_SESSION['user_id'] = $user_id;
             $_SESSION['username'] = $username;
             
             $response['success'] = true;
             $response['user_id'] = $user_id;
-            $response['redirect'] = '../review.html';
+            $response['redirect'] = 'index.html';
         } else {
             $response['message'] = "Неверный пароль!";
         }

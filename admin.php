@@ -13,7 +13,7 @@ function isAdmin($user_id) {
 }
 
 if (!isset($_SESSION['user_id']) || !isAdmin($_SESSION['user_id'])) {
-    header('Location: login.php');
+    header('Location: login.html');
     exit();
 }
 ?>
@@ -56,9 +56,9 @@ if (!isset($_SESSION['user_id']) || !isAdmin($_SESSION['user_id'])) {
                 <img src="img_sait/header/icon_office.svg" alt="Кабинет" />
                 <span>Кабинет</span>
             </a>
-            <a href="review.html">
-                <img src="img_sait/header/icon_review.svg" alt="Отзывы" />
-                <span>Отзывы</span>
+            <a href="catalog.html">
+                <img src="img_sait/header/icon_catalog.svg" alt="Товары" />
+                <span>Товары</span>
             </a>
         </nav>
     </header>

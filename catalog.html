@@ -3,18 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <title>Карточки товаров</title>
     <link rel="stylesheet" href="style/main_style/header.css" />
     <link rel="stylesheet" href="style/main_style/main.css" />
     <link rel="stylesheet" href="style/main_style/footer.css" />
     <link rel="stylesheet" href="style/main_style/background.css" />
 
-    <link rel="stylesheet" href="style/index.css" />
+    <link rel="stylesheet" href="style/style_catalog.css" />
 
     <link rel="stylesheet" href="style/card/style_card.css" />
     <link rel="stylesheet" href="style/card/style_modal_window.css" />
     <link rel="stylesheet" href="style/modal_window/style_alert_wodal.css" />
-    <title>Магазин</title>
   </head>
   <body>
     <header>
@@ -54,139 +53,38 @@
       <div class="sakura-background"></div>
 
       <div class="main-content">
-        <div class="slider-container">
-          <div class="slider">
-            <div class="slide">
-              <img src="img_sait/slider/1.jpg" alt="Slide 1" />
-            </div>
-            <div class="slide">
-              <img src="img_sait/slider/2.jpg" alt="Slide 2" />
-            </div>
-            <div class="slide">
-              <img src="img_sait/slider/3.jpg" alt="Slide 3" />
-            </div>
+        <div class="menu">
+          <h3>Фильтры</h3>
+          <div class="filters">
+            <button onclick="sortProducts('price', 'asc')">
+              Сортировать по цене (по возрастанию)
+            </button>
+            <button onclick="sortProducts('price', 'desc')">
+              Сортировать по цене (по убыванию)
+            </button>
+            <button onclick="sortProducts('name', 'asc')">
+              Сортировать по названию (А-Я)
+            </button>
+            <button onclick="sortProducts('name', 'desc')">
+              Сортировать по названию (Я-А)
+            </button>
           </div>
-          <div class="nav">
-            <button class="prev">❮</button>
-            <button class="next">❯</button>
-          </div>
-          <div class="dots">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+
+          <div class="filters">
+            <div class="category-filter">
+              <h4>Категории</h4>
+              <label><input type="checkbox" value="горшки" />Горшки</label>
+              <label><input type="checkbox" value="семена" />Семена</label>
+              <label><input type="checkbox" value="букеты" />Букеты</label>
+            </div>
+
+            <button onclick="applyFilters()">Применить фильтры</button>
           </div>
         </div>
 
-        <section class="random-products-section">
-          <h2>Рекомендуем вам</h2>
-          <div class="random-products-container">
-            <div id="randomProductsContainer"></div>
-
-            <div class="next-page-arrow">
-              <a href="review.html">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#333"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section class="container-features">
-          <h2>Почему выбирают нас?</h2>
-          <div class="features">
-            <div class="feature">
-              <h3>Профессиональная сборка</h3>
-              <p>Каждый компьютер тестируется перед отправкой</p>
-            </div>
-            <div class="feature">
-              <h3>Гарантия 3 года</h3>
-              <p>Бесплатный ремонт и замена комплектующих</p>
-            </div>
-            <div class="feature">
-              <h3>Быстрая доставка</h3>
-              <p>Отправка в день заказа по всей России</p>
-            </div>
-            <div class="feature">
-              <h3>Рассрочка 0%</h3>
-              <p>Возможность оплаты в течение 12 месяцев</p>
-            </div>
-          </div>
-        </section>
-
-        <div class="yandex-map">
-          <iframe
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3A4cae4ce82a143aca9e52a7506cad5e01f30a2da108850aec336a798b8752ff84&amp;source=constructor"
-            width="1150"
-            height="450"
-            frameborder="0"
-          >
-          </iframe>
-        </div>
-
-        <div class="review-all-cards">
-          <div class="review-card">
-            <div class="review-header">
-              <span class="reviewer-name">Алексей</span>
-              <div class="rating">
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star">★</span>
-              </div>
-            </div>
-            <div class="review-text">
-              Хороший магазин, но мало консультантов, которые могут определиться
-              с выбором.
-            </div>
-            <div class="review-date">23 апреля 2025</div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-header">
-              <span class="reviewer-name">Вячеслав</span>
-              <div class="rating">
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-              </div>
-            </div>
-            <div class="review-text">
-              Очень хороший магазин с огромным выбором товаров!!!
-            </div>
-            <div class="review-date">23 апреля 2025</div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-header">
-              <span class="reviewer-name">Серафим</span>
-              <div class="rating">
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-              </div>
-            </div>
-            <div class="review-text">
-              Хороший магазин, с приятным расположением и огромным выбором
-              товаров. Рекомендую.
-            </div>
-            <div class="review-date">23 апреля 2025</div>
-          </div>
+        <div class="container">
+          <div class="products" id="productContainer"></div>
+          <div id="pagination" class="pagination"></div>
         </div>
       </div>
     </main>
@@ -341,10 +239,9 @@
     <script src="js/main_js/footer.js"></script>
     <script src="js/main_js/background.js"></script>
 
-    <script src="js/index.js"></script>
     <script src="js/alert_auth.js"></script>
-
     <script src="js/review/main_reviews.js"></script>
+    <script src="js/catalog.js"></script>
     <script src="js/cart/basket_script.js"></script>
     <script src="js/cart/favorite_script.js"></script>
   </body>

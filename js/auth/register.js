@@ -29,11 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const result = await response.json();
 
-        console.log(result, username, email, password);
-
         if (result.success) {
           localStorage.setItem("authToken", result.user_id);
-          window.location.href = "review.html";
+          window.location.href = result.redirect;
         } else {
           alert(result.message || "Ошибка регистрации");
         }
