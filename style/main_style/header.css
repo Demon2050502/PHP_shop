@@ -167,6 +167,11 @@ header {
       width: 100%;
       text-align: center;
     }
+
+    nav {
+      top: 130px !important;
+      flex-direction: column !important;
+    }
   }
 
   /* Стили для мобильного меню */
@@ -182,11 +187,10 @@ header {
       left: 0;
       right: 0;
       width: 100vw;
-      display: flex;
       opacity: 0;
       height: auto;
       background-color: var(--color-primary);
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
       justify-content: flex-start;
       gap: 15px;
