@@ -1,6 +1,7 @@
 @import url("../main_style/variables.css");
 
 .alert-modal {
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
