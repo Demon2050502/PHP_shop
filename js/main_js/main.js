@@ -1,3 +1,5 @@
+const token = localStorage.getItem("authToken");
+
 async function loadAuthData_main() {
   try {
     const response = await fetch("php/check_auth.php");
@@ -26,6 +28,25 @@ async function loadAuthData_main() {
     }
   } catch (error) {
     console.error("Ошибка при загрузке данных:", error);
+  }
+}
+
+async function checkAuth() {
+  if (!token) return false;
+
+  try {
+    const response = await fetch("php/check_auth.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const data = await response.json();
+    return data.authenticated;
+  } catch (error) {
+    console.error("Ошибка при проверке авторизации:", error);
+    return false;
   }
 }
 

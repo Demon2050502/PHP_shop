@@ -1,31 +1,14 @@
+const DEFAULT_CARD_WIDTH = 200;
+const DEFAULT_CARD_HEIGHT = 410;
+const DEFAULT_CARD_GAP = 20;
+
 let products = []; // Все товары
 let filteredProducts = []; // Отфильтрованные товары
 let currentPage = 1;
-const productsPerPage = 6;
+let productsPerPage = 6;
 let currentSortKey = "price";
 let currentSortOrder = "asc";
-
-
-// Функция проверки авторизации
-async function checkAuth() {
-  const token = localStorage.getItem("authToken");
-  if (!token) return false;
-
-  try {
-    const response = await fetch("php/check_auth.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    const data = await response.json();
-    return data.authenticated;
-  } catch (error) {
-    console.error("Ошибка при проверке авторизации:", error);
-    return false;
-  }
-}
+let resizeTimer;
 
 // Загрузка товаров
 async function fetchProducts() {
@@ -70,6 +53,15 @@ function applyFilters() {
 
 // Обновление отображения товаров
 async function updateProductDisplay() {
+  const previousProductsPerPage = productsPerPage;
+
+  try {
+    productsPerPage = calculateProductsPerPage();
+  } catch (e) {
+    console.error("Ошибка расчёта товаров на странице:", e);
+    productsPerPage = previousProductsPerPage || 6;
+  }
+
   const productContainer = document.getElementById("productContainer");
 
   // Сортируем текущие отфильтрованные товары
@@ -84,13 +76,15 @@ async function updateProductDisplay() {
     1,
     Math.ceil(sortedProducts.length / productsPerPage)
   );
-  currentPage = Math.min(currentPage, totalPages); // Корректируем текущую страницу
+  currentPage = Math.min(currentPage, totalPages);
 
   const startIndex = (currentPage - 1) * productsPerPage;
   const paginatedProducts = sortedProducts.slice(
     startIndex,
     startIndex + productsPerPage
   );
+
+  // console.log(productsPerPage);
 
   // Получаем статусы избранного
   const favoriteStatuses = await Promise.all(
@@ -200,13 +194,10 @@ function applyFiltersAndSort(sortKey, sortOrder) {
 document.addEventListener("DOMContentLoaded", async () => {
   products = await fetchProducts();
   if (Array.isArray(products)) {
-    // Инициализируем filteredProducts всеми товарами
     filteredProducts = [...products];
 
-    // Первоначальное отображение
     updateProductDisplay();
 
-    // Назначаем обработчики для кнопок сортировки
     document.querySelectorAll(".filters button").forEach((button) => {
       const match = button.onclick
         ?.toString()
@@ -218,11 +209,34 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
 
-    // Обработчик для кнопки "Применить фильтры"
     document
       .querySelector('button[onclick="applyFilters()"]')
       .addEventListener("click", () =>
         applyFiltersAndSort(currentSortKey, currentSortOrder)
       );
   }
+});
+
+function calculateProductsPerPage() {
+  const cardWidth = DEFAULT_CARD_WIDTH + DEFAULT_CARD_GAP * 2;
+  const cardHeight = DEFAULT_CARD_HEIGHT + DEFAULT_CARD_GAP * 2;
+
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+
+  const cardsPerRow = Math.max(1, Math.floor(windowWidth / cardWidth));
+  const cardsPerColumn = Math.max(1, Math.floor(windowHeight / cardHeight));
+
+  return cardsPerRow * cardsPerColumn;
+}
+
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    const newValue = calculateProductsPerPage();
+    if (newValue !== productsPerPage) {
+      productsPerPage = newValue;
+      updateProductDisplay();
+    }
+  }, 200);
 });

@@ -20,7 +20,7 @@ document.getElementById("submitReview").addEventListener("click", async () => {
 
   const token = localStorage.getItem("authToken");
 
-  const response = await fetch("./php/reviews/add_review.php", {
+  const response = await fetch("php/reviews/add_review.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -47,7 +47,7 @@ document.getElementById("submitReview").addEventListener("click", async () => {
 
 async function displayReviews(productId) {
   const response = await fetch(
-    `./php/reviews/get_reviews.php?productId=${productId}`
+    `php/reviews/get_reviews.php?productId=${productId}`
   );
   const reviews = await response.json();
 
@@ -105,7 +105,7 @@ async function openReviewModal(productId, productTitle, productImage) {
 // Новая функция для отображения среднего рейтинга
 async function displayAverageRating(productId) {
   const response = await fetch(
-    `./php/get_average_rating.php?productId=${productId}`
+    `php/get_average_rating.php?productId=${productId}`
   );
   const data = await response.json();
 
@@ -128,7 +128,7 @@ async function displayAverageRating(productId) {
 // Обновляем displayReviews чтобы вызывать обновление рейтинга после добавления отзыва
 async function displayReviews(productId) {
   const response = await fetch(
-    `./php/reviews/get_reviews.php?productId=${productId}`
+    `php/reviews/get_reviews.php?productId=${productId}`
   );
   const reviews = await response.json();
 

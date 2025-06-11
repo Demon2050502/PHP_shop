@@ -34,8 +34,6 @@ function showAlertModal(
   if (autoCloseDelay > 0) {
     setTimeout(hideModal, autoCloseDelay);
   }
-
-  return;
 }
 
 async function checkAuthWithAlert() {

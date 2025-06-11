@@ -1,35 +1,3 @@
-// Функция для проверки авторизации пользователя
-async function checkAuth() {
-  // Получаем токен из localStorage
-  const token = localStorage.getItem("authToken");
-
-  if (!token) {
-    console.log("Токен отсутствует. Пользователь не авторизован.");
-    return false; // Пользователь не авторизован
-  }
-
-  try {
-    const response = await fetch("php/check_auth.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Передаем токен в заголовке
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error("Ошибка при проверке авторизации");
-    }
-
-    const data = await response.json();
-
-    return data.authenticated; // Возвращаем true, если пользователь авторизован
-  } catch (error) {
-    console.error("Ошибка при проверке авторизации:", error);
-    return false;
-  }
-}
-
 // Функция для загрузки избранных товаров с сервера
 async function fetchFavorites() {
   try {
@@ -52,11 +20,6 @@ async function fetchFavorites() {
 async function renderFavoriteProducts() {
   const isAuthenticated = await checkAuth();
   const favoriteContainer = document.getElementById("favoriteContainer");
-
-  if (!favoriteContainer) {
-    console.error("Контейнер не найден");
-    return;
-  }
 
   if (!isAuthenticated) {
     // Если пользователь не авторизован, показываем сообщение

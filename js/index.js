@@ -210,23 +210,3 @@ async function displayRandomProducts() {
 document.addEventListener("DOMContentLoaded", async () => {
   await displayRandomProducts();
 });
-
-async function checkAuth() {
-  const token = localStorage.getItem("authToken");
-  if (!token) return false;
-
-  try {
-    const response = await fetch("php/check_auth.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    const data = await response.json();
-    return data.authenticated;
-  } catch (error) {
-    console.error("Ошибка при проверке авторизации:", error);
-    return false;
-  }
-}
